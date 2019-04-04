@@ -10,7 +10,11 @@ $(document).ready(function() {
     var incorrectAnswers = 0;
     var unansweredQuestions = 0;
 
+    var isThisCorrect = false;
+    var isThisIncorrect = false;
+
     $(".question").hide();
+    $("#results").hide();
     
     
     function decrement() {
@@ -24,9 +28,23 @@ $(document).ready(function() {
         //  Once number hits zero...
         if (seconds === 0) {
     
-          //  ...run the stop function.
+          unansweredQuestions++;
+
           stop();
-          timeUp();
+          resetSeconds();
+    
+          $(".question_asked").hide();
+          $(".question").first().show().removeClass("question").addClass("question_asked").appendTo("#game");
+
+          if (correctAnswers + incorrectAnswers + unansweredQuestions === 10) {
+          stop();
+          $("#game").empty();
+          $("#time").empty();
+          $("#correctAnswers").append(correctAnswers);
+          $("#incorrectAnswers").append(incorrectAnswers);
+          $("#unansweredQuestions").append(unansweredQuestions);
+          $("#results").show().appendTo("#game");
+      };
         }
       }
     
@@ -41,10 +59,6 @@ $(document).ready(function() {
         intervalId = setInterval(decrement, 1000);
         decrement();
       }
-
-      function timeUp() {
-          alert("Time's up!");
-      };
     
       button.onclick = function(event) {
 
@@ -58,14 +72,52 @@ $(document).ready(function() {
     };
 
 
+    $(".correct").on("click", function(){
     
-    $(".answer").on("click", function(){
+      correctAnswers++;
+
       stop();
       resetSeconds();
+    
       $(".question_asked").hide();
       $(".question").first().show().removeClass("question").addClass("question_asked").appendTo("#game");
-    
+
+
+      if (correctAnswers + incorrectAnswers + unansweredQuestions === 10) {
+        
+        stop();
+        $("#game").empty();
+        $("#time").empty();
+        $("#correctAnswers").append(correctAnswers);
+        $("#incorrectAnswers").append(incorrectAnswers);
+        $("#unansweredQuestions").append(unansweredQuestions);
+        $("#results").show().appendTo("#game");
+      };
     });
+
+    $(".incorrect").on("click", function(){
+     
+      incorrectAnswers++;
+
+      stop();
+      resetSeconds();
+    
+      $(".question_asked").hide();
+      $(".question").first().show().removeClass("question").addClass("question_asked").appendTo("#game");
+
+      if (correctAnswers + incorrectAnswers + unansweredQuestions === 10) {
+        
+        stop();
+        $("#game").empty();
+        $("#time").empty();
+        $("#correctAnswers").append(correctAnswers);
+        $("#incorrectAnswers").append(incorrectAnswers);
+        $("#unansweredQuestions").append(unansweredQuestions);
+        $("#results").show().appendTo("#game");
+      };
+
+    });
+
 
     
     
