@@ -21,16 +21,20 @@ h1 {
     display: flex;
     justify-content: flex-end;
     color: #008ae6;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 #game {
     display: flex;
     justify-content: center;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 #time {
     padding-left: 50px;
     margin-top: 30px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 28px;
 }
 
 button {
@@ -51,4 +55,11 @@ button {
 #results, .question_asked {
     padding-left: 50px;
     margin-top: 30px;
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 26px;
+}
+
+.answer {
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
 }
