@@ -67,8 +67,9 @@ $(document).ready(function() {
         if (seconds === 0) {
     
           //...run the questionStatus function.
-    
+
           questionStatus("unanswered");
+          
 
         }
       }
@@ -157,24 +158,25 @@ $(document).ready(function() {
       };
 
       
-    //When the start button is clicked, 
+    //When the start button is clicked, the startGame function will run.
       button.onclick = function(event) {
 
       startGame();
         
     };
 
+    //Each time a span is clicked, the code will analyze which class is associated to that span. Then, the questionSttus function will run based on the spanClass.
+
     $("span").click(function(){
 
       var spanClass = $(this).attr("class");
       console.log(spanClass);
       questionStatus(spanClass);
-      // var correctAnswer = $(this).siblings("span").hasClass("correct");
-
-      // // var correctAnswer = $(this).siblings().hasClass("correct");
-      // console.log(correctAnswer);
+  
 
     })
+
+    //If the user presses Start Over, the "question_asked" class will be removed from all elements and the class "question" will be restored. Then, the startGame function will run.
 
 
     $("#startAgain").on("click", function(){
