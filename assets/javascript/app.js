@@ -88,8 +88,9 @@ $(document).ready(function() {
           if (answerChosen === "correct") {
 
             var status = `
-            <div>
+            <div class="text-center">
             <h3>You're right!</h3>
+            </br>
             <img src='assets/images/${images[questionCount - 1]}' width=250 height=250>
             </div>
             `
@@ -100,9 +101,10 @@ $(document).ready(function() {
           } else if (answerChosen === "incorrect") {
 
             var status = `
-            <div>
+            <div class="text-center">
             <h3>Nope!</h3>
             <p>The correct answer was: ${answers[questionCount - 1]}</p>
+            </br>
             <img src='assets/images/${images[questionCount - 1]}' width=250 height=250>
             </div>
             `
@@ -114,8 +116,9 @@ $(document).ready(function() {
           } else {
 
             var status = `
-            <div>
+            <div class="text-center">
             <h3>Time's up!</h3>
+            </br>
             <p>The correct answer was: ${answers[questionCount - 1]}</p>
             <img src='assets/images/${images[questionCount - 1]}' width=250 height=250>
             </div>
